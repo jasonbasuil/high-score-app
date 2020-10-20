@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import Leaderboard from "./Leaderboard";
 
 function HighScoreApp() {
   const [currentNumber, setCurrentNumber] = useState(0);
@@ -72,6 +73,7 @@ function HighScoreApp() {
         Get Number
       </button>
       <button onClick={onSubmit}>Submit</button>
+      <Leaderboard />
     </div>
   );
 }
