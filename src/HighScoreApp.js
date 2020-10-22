@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./components/Leaderboard";
 
 function HighScoreApp() {
   const [currentNumber, setCurrentNumber] = useState(0);
   const [numberOfClicks, setNumberOfClicks] = useState(0);
   const [inputName, setInputName] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const [players, setPlayers] = useState(null)
 
   useEffect(() => {
     if (numberOfClicks === 10) {
       setIsDisabled((prev) => !prev);
     }
   }, [numberOfClicks]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/players").then(res => res.json()).then(data => setPlayers(data))
+  },[])
 
   const handleGetNumber = () => {
     if (!isDisabled && numberOfClicks < 10) {
@@ -28,12 +33,13 @@ function HighScoreApp() {
 
   const onSubmit = async () => {
     const gameData = {
-      score: currentNumber,
+      id: 6,
       name: inputName,
-      numberOfClicks: numberOfClicks,
+      totalPoints: currentNumber,
+      clicks: numberOfClicks,
     };
     try {
-      const response = await fetch("www.fakeendpoint.com", {
+      const response = await fetch("http://localhost:3000/players", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +51,6 @@ function HighScoreApp() {
     } catch (error) {
       console.log(error.message);
     } finally {
-      // assuming our dummy endpoint won't currently succeed
       alert("Successfully submitted score!");
       resetGame();
     }
@@ -73,7 +78,7 @@ function HighScoreApp() {
         Get Number
       </button>
       <button onClick={onSubmit}>Submit</button>
-      <Leaderboard />
+      <Leaderboard players={players}/>
     </div>
   );
 }

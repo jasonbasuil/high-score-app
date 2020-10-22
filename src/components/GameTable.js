@@ -15,16 +15,9 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(ranking, name, score, clicks, average) {
-  return { ranking, name, score, clicks, average };
-}
+const getAverageScore = (player) => player.totalPoints / player.clicks
 
-const rows = [
-  createData(1, "Jason", 79, 8, 9.9),
-  createData(2, "Bob", 55, 2, 27.5),
-];
-
-const GameTable = () => {
+const GameTable = ({ players }) => {
   const classes = useStyles();
 
   return (
@@ -40,15 +33,15 @@ const GameTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {players && players.map((player, index) => (
+            <TableRow key={player.name}>
               <TableCell component="th" scope="row">
-                {row.ranking}
+                {index + 1}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.score}</TableCell>
-              <TableCell align="right">{row.clicks}</TableCell>
-              <TableCell align="right">{row.average}</TableCell>
+              <TableCell align="right">{player.name}</TableCell>
+              <TableCell align="right">{player.totalPoints}</TableCell>
+              <TableCell align="right">{player.clicks}</TableCell>
+              <TableCell align="right">{getAverageScore(player)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
