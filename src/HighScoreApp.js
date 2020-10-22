@@ -7,6 +7,7 @@ function HighScoreApp() {
   const [numberOfClicks, setNumberOfClicks] = useState(0);
   const [inputName, setInputName] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isScoreSubmitted, setIsScoreSubmitted] = useState(false);
   const [players, setPlayers] = useState(null)
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function HighScoreApp() {
 
   useEffect(() => {
     fetch("http://localhost:3000/players").then(res => res.json()).then(data => setPlayers(data))
-  },[])
+  },[isScoreSubmitted])
 
   const handleGetNumber = () => {
     if (!isDisabled && numberOfClicks < 10) {
@@ -33,7 +34,6 @@ function HighScoreApp() {
 
   const onSubmit = async () => {
     const gameData = {
-      id: 6,
       name: inputName,
       totalPoints: currentNumber,
       clicks: numberOfClicks,
@@ -51,7 +51,7 @@ function HighScoreApp() {
     } catch (error) {
       console.log(error.message);
     } finally {
-      alert("Successfully submitted score!");
+      setIsScoreSubmitted(prev => !prev)
       resetGame();
     }
   };
@@ -60,6 +60,7 @@ function HighScoreApp() {
     setNumberOfClicks(0);
     setCurrentNumber(0);
     setIsDisabled(false);
+    setIsScoreSubmitted(false);
   };
 
   return (

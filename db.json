@@ -17,6 +17,78 @@
       "name": "John Smith",
       "totalPoints": 390,
       "clicks": 10
+    },
+    {
+      "id": 4,
+      "name": "Boss Ross",
+      "totalPoints": 156,
+      "clicks": 5
+    },
+    {
+      "id": 5,
+      "name": "Aaron Andrews",
+      "totalPoints": 264,
+      "clicks": 9
+    },
+    {
+      "id": 6,
+      "name": "Billy Bob",
+      "totalPoints": 391,
+      "clicks": 13
+    },
+    {
+      "id": 7,
+      "name": "Landon Donovan",
+      "totalPoints": 45,
+      "clicks": 3
+    },
+    {
+      "id": 8,
+      "name": "Rose Gellar",
+      "totalPoints": 245,
+      "clicks": 7
+    },
+    {
+      "id": 9,
+      "name": "Elliot James",
+      "totalPoints": 290,
+      "clicks": 19
+    },
+    {
+      "id": 10,
+      "name": "Barry Jones",
+      "totalPoints": -30,
+      "clicks": 1
+    },
+    {
+      "id": 11,
+      "name": "Cat Daly",
+      "totalPoints": -83,
+      "clicks": 2
+    },
+    {
+      "name": "Bobby Bob",
+      "totalPoints": 10,
+      "clicks": 1,
+      "id": 12
+    },
+    {
+      "name": "William James",
+      "totalPoints": 68,
+      "clicks": 3,
+      "id": 13
+    },
+    {
+      "name": "Bill Wayne",
+      "totalPoints": 88,
+      "clicks": 2,
+      "id": 14
+    },
+    {
+      "name": "Jeremy Stevens",
+      "totalPoints": 76,
+      "clicks": 9,
+      "id": 15
     }
   ]
 }
