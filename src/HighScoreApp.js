@@ -66,7 +66,7 @@ function HighScoreApp() {
     <div className="App">
       <h1>High Score App</h1>
       <div>Name: {inputName}</div>
-      <div>Number of Clicks: {numberOfClicks}</div>
+      <div>Clicks Remaining: {(10 - numberOfClicks)}</div>
       <div>Current high score: {currentNumber}</div>
       <input
         type="text"
