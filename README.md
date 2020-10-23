@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## High Score App
+This was an application built for a take-home project as part of an interview process with Cobalt.io
+![Application screenshot](https://res.cloudinary.com/dwgvb9rdh/image/upload/v1603439436/Screen_Shot_2020-10-23_at_12.50.08_AM_athnio.png)
 
 ## Available Scripts
 
