@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper"
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -9,10 +10,14 @@ import TableRow from "@material-ui/core/TableRow";
 import { TableSortLabel } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  table: {
-    marginLeft: "5%",
-    marginRight: "5%",
-    width: "80%",
+  cellHeader: {
+    backgroundColor: "#d2dcdf",
+    fontColor: "#606767",
+    fontWeight: "bold"
+  }, 
+  paper: {
+    margin: "0 5% 5% 5%",
+    width: "90%",
   },
 });
 
@@ -47,15 +52,15 @@ const GameTable = ({ players }) => {
   },[isSortedByAverage, isSortedByTotal, players])
 
   return (
-    <TableContainer>
+    <TableContainer component={Paper} className={classes.paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Ranking</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right"><TableSortLabel active={isSortedByTotal} onClick={toggleSortByTotal} direction="asc">Score</TableSortLabel></TableCell>
-            <TableCell align="right">Clicks</TableCell>
-            <TableCell align="right"><TableSortLabel active={isSortedByAverage} onClick={toggleSortByAverage} direction="asc">Average</TableSortLabel></TableCell>
+            <TableCell align="left" className={classes.cellHeader}size="medium">Ranking</TableCell>
+            <TableCell align="left" className={classes.cellHeader}size="medium">Name</TableCell>
+            <TableCell align="right" className={classes.cellHeader}size="medium"><TableSortLabel active={isSortedByTotal} onClick={toggleSortByTotal} direction="asc">Score</TableSortLabel></TableCell>
+            <TableCell align="right" className={classes.cellHeader}size="medium">Clicks</TableCell>
+            <TableCell align="right" className={classes.cellHeader}size="medium"><TableSortLabel active={isSortedByAverage} onClick={toggleSortByAverage} direction="asc">Average</TableSortLabel></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -64,7 +69,7 @@ const GameTable = ({ players }) => {
               <TableCell component="th" scope="row">
                 {index + 1}
               </TableCell>
-              <TableCell align="right">{player.name}</TableCell>
+              <TableCell align="left">{player.name}</TableCell>
               <TableCell align="right">
                 {player.totalPoints}
               </TableCell>
