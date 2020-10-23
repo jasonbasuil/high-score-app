@@ -4,7 +4,8 @@ import GameTable from "./GameTable";
 
 const useStyles = makeStyles({
   header: {
-    color: "#177ec8"
+    color: "#177ec8",
+    marginTop: "3%"
   },
 });
 
@@ -13,7 +14,7 @@ const Leaderboard = ({players }) => {
   
   return (
     <div>
-      <h1 className={classes.header}>Leaderboard</h1>
+      <h2 className={classes.header}>Leaderboard</h2>
       <GameTable players={players}/>
     </div>
   );

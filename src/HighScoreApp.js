@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     },
     marginRight: "15px"
   },
+  header: {
+    backgroundColor: "#3612c8",
+    color: "#ffffff",
+    margin: "0 0 0 0",
+    padding: "3%",
+  },
   info: {
     marginBottom: "4px"
   },
@@ -41,6 +47,9 @@ const useStyles = makeStyles({
     marginRight: "3%",
     padding: "2%",
     width: "90%",
+  },
+  subHeader: {
+    margin: "2% 0 2% 0",
   },
   submitButton: {
     color: "#ffffff",
@@ -125,10 +134,12 @@ function HighScoreApp() {
 
   return (
     <div className="App">
-      <h1>High Score App</h1>
-      <span>Get the highest score in the fewest number of clicks!
-        <IconButton className={classes.info} onClick={handleOpenModal}><InfoOutlinedIcon/></IconButton>
-      </span>
+      <h1 className={classes.header}>High Score App</h1>
+      <div className={classes.subHeader}>
+        <span>Get the highest score in the fewest number of clicks!
+          <IconButton className={classes.info} onClick={handleOpenModal}><InfoOutlinedIcon/></IconButton>
+        </span>
+      </div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
