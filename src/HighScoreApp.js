@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import Fade from "@material-ui/core/Fade"
-import IconButton from "@material-ui/core/IconButton";
-import Modal from "@material-ui/core/Modal";
-import Paper from "@material-ui/core/Paper";
-import TextField from "@material-ui/core/TextField";
+import { Button, Container, Fade, IconButton, Modal, Paper, TextField } from "@material-ui/core";
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import logo from "./assets/cobalt-logo.png";
 import "./App.css";
 import Leaderboard from "./components/Leaderboard";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   drawButton: {
     color: "#177ec8",
     border: "1px solid #177ec8",
@@ -20,13 +14,13 @@ const useStyles = makeStyles({
       color: "#ffffff",
       backgroundColor: "#177ec8",
     },
-    marginRight: "15px"
+    marginRight: theme.spacing(3)
   },
   header: {
     backgroundColor: "#3612c8",
     color: "#ffffff",
-    margin: "0 0 0 0",
-    padding: "3%",
+    margin: theme.spacing(0),
+    padding: theme.spacing(3)
   },
   info: {
     marginBottom: "4px"
@@ -35,21 +29,20 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: "0 10% 0 10%"
+    margin: theme.spacing(6)
   },
   modalPaper: {
     backgroundColor: "#ffffff",
     border: '2px solid #000',
-    padding: "5%"
+    padding: theme.spacing(5)
   },
   paper: {
-    marginLeft: "3%",
-    marginRight: "3%",
-    padding: "2%",
+    margin: theme.spacing(3),
+    padding: theme.spacing(3),
     width: "90%",
   },
   subHeader: {
-    margin: "2% 0 2% 0",
+    margin: theme.spacing(3),
   },
   submitButton: {
     color: "#ffffff",
@@ -58,12 +51,12 @@ const useStyles = makeStyles({
       backgroundColor: "#4417f5"
     },
     border: "1px solid #3612c8",
-    marginLeft: "15px"
+    marginLeft: theme.spacing(4)
   },
   textfield: {
-    marginBottom: "5%"
+    marginBottom: theme.spacing(4)
   }
-});
+}));
 
 function HighScoreApp() {
   const classes = useStyles();
