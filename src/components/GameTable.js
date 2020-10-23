@@ -7,7 +7,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { TableSortLabel } from "@material-ui/core";
+import TableSortLabel  from "@material-ui/core/TableSortLabel";
+import Tooltip from "@material-ui/core/Tooltip"
 
 const useStyles = makeStyles({
   cellHeader: {
@@ -58,9 +59,29 @@ const GameTable = ({ players }) => {
           <TableRow>
             <TableCell align="left" className={classes.cellHeader}size="medium">Ranking</TableCell>
             <TableCell align="left" className={classes.cellHeader}size="medium">Name</TableCell>
-            <TableCell align="right" className={classes.cellHeader}size="medium"><TableSortLabel active={isSortedByTotal} onClick={toggleSortByTotal} direction="asc">Score</TableSortLabel></TableCell>
+            <TableCell align="right" className={classes.cellHeader}size="medium">
+              <Tooltip title="Sort by highest score">
+                <TableSortLabel 
+                  active={isSortedByTotal} 
+                  onClick={toggleSortByTotal} 
+                  direction="asc" 
+                  style={isSortedByTotal ? {color: "#177ec8"} : null}>
+                    Score
+                </TableSortLabel>
+              </Tooltip>
+            </TableCell>
             <TableCell align="right" className={classes.cellHeader}size="medium">Clicks</TableCell>
-            <TableCell align="right" className={classes.cellHeader}size="medium"><TableSortLabel active={isSortedByAverage} onClick={toggleSortByAverage} direction="asc">Average</TableSortLabel></TableCell>
+            <TableCell align="right" className={classes.cellHeader}size="medium">
+              <Tooltip title="Sort by average score">
+                <TableSortLabel 
+                  active={isSortedByAverage} 
+                  onClick={toggleSortByAverage} 
+                  direction="asc" 
+                  style={isSortedByAverage ? {color: "#177ec8"} : null}>
+                    Average
+                </TableSortLabel>
+              </Tooltip>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
